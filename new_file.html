@@ -1,0 +1,208 @@
+<script>
+	//头部导航
+	    var URL = "http://tel.runsa.cn:8177/bi_yhj/REALLY/bi/report/cross_sal/query";
+		var a_fh=[];
+		var b_fh=[];
+		var c_fh=[];
+		var d_fh=[];
+		var e_fh=[];
+		var f_fh=[];
+		var g_fh=[];
+		var h_fh=[];
+		var i_fh=[];
+		var j_fh=[];
+		var k_fh=[];
+		var l_fh=[];
+		var m_fh=[];
+		var n_fh=[];
+        var o_fh=[];
+        var p_fh=[];
+        //总值
+//      var aa_fh=[];
+//		var bb_fh=[];
+//		var cc_fh=[];
+//		var dd_fh=[];
+//		var ee_fh=[];
+//		var ff_fh=[];
+//		var gg_fh=[];
+//		var hh_fh=[];
+//		var ii_fh=[];
+//		var jj_fh=[];
+//		var kk_fh=[];
+//		var ll_fh=[];
+//		var mm_fh=[];
+//		var nn_fh=[];
+//      var oo_fh=[];
+//      var pp_fh=[];
+	   	var str=0
+	 $("#anniu").click(function(){
+		 str+=1
+		 if(str==1){
+			str=1
+		 }
+		 if(str!=1){
+			str=0
+		 }
+		 
+	 })
+	 $("#nav li").bind("click",function() {
+		data_id = $(this).attr("data-id");
+						$("#nav li").removeClass('active');
+						$("#nav li[data-id = '" + data_id + "']").addClass('active');
+					let index = $(this).index() + 1;
+						var mouth="";
+					if(index==1){
+					mouth=1;
+						var list = []
+					}
+					else if(index==2){ 
+					mouth=2
+					}
+					else if(index==3){ 
+					mouth=3
+					}
+					else if(index==4){ 
+					mouth=4
+					}
+					else if(index==5){ 
+					mouth=5
+					}
+					else if(index==6){ 
+					mouth=6
+					}
+					var params = {
+						va_months:mouth,
+						"userId": '15975531236',
+						"va_months": 5,
+						"local_send_flag": str,
+						"areacode1": "",
+						"org_level_id": "",
+						"org_brd_id": ""
+					};
+		           first(params);
+				})
+	 	 function first(params){	
+					$.ajax({ 
+					url: URL,
+					type: 'POST',
+					data:params,
+					dataType: 'json',
+					success: function(obj){
+                               console.log(obj)
+							list = obj.data.list;
+							sum =obj.data.summary;
+							var a=list[0]
+							var b=list[1]
+							a_fh=[]; b_fh=[]; c_fh=[]; d_fh=[]; e_fh=[]; f_fh=[]; g_fh=[]; h_fh=[];
+							i_fh=[]; j_fh=[]; k_fh=[]; l_fh=[]; m_fh=[]; n_fh=[]; o_fh=[];p_fh=[];
+//							aa_fh=[]; bb_fh=[]; cc_fh=[]; dd_fh=[]; ee_fh=[]; ff_fh=[]; gg_fh=[]; hh_fh=[];
+//							ii_fh=[]; jj_fh=[]; kk_fh=[]; ll_fh=[]; mm_fh=[]; nn_fh=[]; oo_fh=[];pp_fh=[];
+							for (var i = 0; i < list.length; i++) {
+								a_fh = a_fh.concat(list[i].cross_org_num)
+								b_fh = b_fh.concat(list[i].cross_zero_org_nm)
+								c_fh = c_fh.concat(list[i].cross_sal_amt)
+								d_fh = d_fh.concat(list[i].cross_sal_amt_ratio)
+								e_fh = e_fh.concat(list[i].cross_sal_qty)
+								f_fh = f_fh.concat(list[i].wareh_send_qty)
+								g_fh = g_fh.concat(list[i].store_send_qty)
+								h_fh = h_fh.concat(list[i].sal_nos)
+								i_fh = i_fh.concat(list[i].cross_upt)
+								j_fh = j_fh.concat(list[i].cross_atv)
+								k_fh = k_fh.concat(list[i].no_sku_sal_amt)
+								l_fh = k_fh.concat(list[i].no_sku_sal_amt_ratio)
+								m_fh = l_fh.concat(list[i].no_size_sal_amt)
+								n_fh = m_fh.concat(list[i].no_size_sal_amt_ratio)
+								o_fh = o_fh.concat(list[i].org_brd_id)
+								//合计值
+//								aa_fh = a_fh.concat(sum[i].cross_org_num)
+//								bb_fh = b_fh.concat(sum[i].cross_zero_org_nm)
+//								cc_fh = c_fh.concat(sum[i].cross_sal_amt)
+//								dd_fh = d_fh.concat(sum[i].cross_sal_amt_ratio)
+//								ee_fh = e_fh.concat(sum[i].cross_sal_qty)
+//								ff_fh = f_fh.concat(sum[i].wareh_send_qty)
+//								gg_fh = g_fh.concat(sum[i].store_send_qty)
+//								hh_fh = h_fh.concat(sum[i].sal_nos)
+//								ii_fh = i_fh.concat(sum[i].cross_upt)
+//								jj_fh = j_fh.concat(sum[i].cross_atv)
+//								kk_fh = k_fh.concat(sum[i].no_sku_sal_amt)
+//								ll_fh = k_fh.concat(sum[i].no_sku_sal_amt_ratio)
+//								mm_fh = l_fh.concat(sum[i].no_size_sal_amt)
+//								nn_fh = m_fh.concat(sum[i].no_size_sal_amt_ratio)
+//								oo_fh = o_fh.concat(sum[i].org_brd_id)
+							}
+
+	                                                          
+
+                              for(var i=0;i<a_fh.length;i++){
+                         	 $('#area_rist .aa').append('<td>'+a_fh[i]+'</td>')
+	                         }  
+	                         
+	                         for(var i=0;i<b_fh.length;i++){
+	                         	 $('#area_rist .bb').append('<td>'+b_fh[i]+'</td>')
+	                         
+	                         }
+	                         for(var i=0;i<c_fh.length;i++){
+	                         	 $('#area_rist .cc').append('<td>'+c_fh[i]+'</td>')
+	                         }
+	                         for(var i=0;i<d_fh.length;i++){
+	                         	 $('#area_rist .dd').append('<td>'+d_fh[i]+'</td>')
+	                         }
+	                         for(var i=0;i<e_fh.length;i++){
+	                         	 $('#area_rist .ee').append('<td>'+e_fh[i]+'</td>')
+	                         }
+	                         for(var i=0;i<f_fh.length;i++){
+	                         	 $('#area_rist .ff').append('<td>'+f_fh[i]+'</td>')
+	                         }
+	                         for(var i=0;i<g_fh.length;i++){
+	                         	 $('#area_rist .gg').append('<td>'+g_fh[i]+'</td>')
+	                         }
+	                         for(var i=0;i<h_fh.length;i++){
+	                         	 $('#area_rist .hh').append('<td>'+h_fh[i]+'</td>')
+	                         }
+	                         for(var i=0;i<i_fh.length;i++){
+	                         	 $('#area_rist .ii').append('<td>'+i_fh[i]+'</td>')
+	                         }
+	                         for(var i=0;i<j_fh.length;i++){
+	                         	 $('#area_rist .jj').append('<td>'+j_fh[i]+'</td>')
+	                         }
+	                         for(var i=0;i<k_fh.length;i++){
+	                         	 $('#area_rist .kk').append('<td>'+k_fh[i]+'</td>')
+	                         }
+	                         for(var i=0;i<l_fh.length;i++){
+	                         	 $('#area_rist .ll').append('<td>'+l_fh[i]+'</td>')
+	                         }
+	                         for(var i=0;i<m_fh.length;i++){
+	                         	 $('#area_rist .mm').append('<td>'+m_fh[i]+'</td>')
+	                         }
+	                         for(var i=0;i<n_fh.length;i++){
+	                         	 $('#area_rist .nn').append('<td>'+n_fh[i]+'</td>')
+	                         }
+	                         for(var i=0;i<o_fh.length;i++){
+	                         	 $('#area_rist .oo').append('<th>'+o_fh[i]+'</th>')
+	                         }
+							}
+						});
+		 }
+	 	  var params = {
+						vmouth_months:1,
+						"userId": '15975531236',
+						"va_months": 5,
+						"local_send_flag": str,
+						"areacode1": "",
+						"org_level_id": "",
+						"org_brd_id": ""
+					};
+      first(params);
+	 //侧滑
+	 $('#CH').click(function(){
+	$("#cehua").show(1000)
+	$("#ling").show()
+	})
+	$('#ling').click(function(){
+		$("#cehua").hide()
+		$(this).hide()
+	})
+</script>
+<script src="js/guanxiaqu.js"></script>
+<script src="js/dianpupingpai.js"></script>
+<script src="js/dianpujibie.js"></script>
