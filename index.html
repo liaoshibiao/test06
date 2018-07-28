@@ -230,21 +230,21 @@
         var p_fh=[];
         //总值
         var aa_fh=[];
-//		var bb_fh=[];
-//		var cc_fh=[];
-//		var dd_fh=[];
-//		var ee_fh=[];
-//		var ff_fh=[];
-//		var gg_fh=[];
-//		var hh_fh=[];
-//		var ii_fh=[];
-//		var jj_fh=[];
-//		var kk_fh=[];
-//		var ll_fh=[];
-//		var mm_fh=[];
-//		var nn_fh=[];
-//      var oo_fh=[];
-//      var pp_fh=[];
+		var bb_fh=[];
+		var cc_fh=[];
+		var dd_fh=[];
+		var ee_fh=[];
+		var ff_fh=[];
+		var gg_fh=[];
+		var hh_fh=[];
+		var ii_fh=[];
+		var jj_fh=[];
+		var kk_fh=[];
+		var ll_fh=[];
+		var mm_fh=[];
+		var nn_fh=[];
+        var oo_fh=[];
+        var pp_fh=[];
 	   	var str=0
 	 $("#anniu").click(function(){
 		 str+=1
@@ -283,9 +283,8 @@
 					mouth=6
 					}
 					var params = {
-						va_months:mouth,
 						"userId": '15975531236',
-						"va_months": 5,
+						"va_months": mouth,
 						"local_send_flag": str,
 						"areacode1": "",
 						"org_level_id": "",
@@ -303,12 +302,12 @@
                               
 							list = obj.data.list;
 							sum = obj.data.summary;
-							 console.log(sum)
 							a_fh=[]; b_fh=[]; c_fh=[]; d_fh=[]; e_fh=[]; f_fh=[]; g_fh=[]; h_fh=[];
-							i_fh=[]; j_fh=[]; k_fh=[]; l_fh=[]; m_fh=[]; n_fh=[]; o_fh=[];p_fh=[];
-//							aa_fh=[];
-//							bb_fh=[]; cc_fh=[]; dd_fh=[]; ee_fh=[]; ff_fh=[]; gg_fh=[]; hh_fh=[];
-//							ii_fh=[]; jj_fh=[]; kk_fh=[]; ll_fh=[]; mm_fh=[]; nn_fh=[]; oo_fh=[];pp_fh=[];
+							i_fh=[]; j_fh=[]; k_fh=[]; l_fh=[]; m_fh=[]; n_fh=[]; o_fh=[];
+							aa_fh=[];
+							
+							bb_fh=[]; cc_fh=[]; dd_fh=[]; ee_fh=[]; ff_fh=[]; gg_fh=[]; hh_fh=[];
+							ii_fh=[]; jj_fh=[]; kk_fh=[]; ll_fh=[]; mm_fh=[]; nn_fh=[]; oo_fh=[];
 							for (var i = 0; i < list.length; i++) {
 								a_fh = a_fh.concat(list[i].cross_org_num)
 								b_fh = b_fh.concat(list[i].cross_zero_org_nm)
@@ -343,7 +342,22 @@
 								nn_fh = sum[0].no_size_sal_amt_ratio
 								oo_fh = sum[0].org_brd_id
 	                                                          
-
+                             $('#area_rist').empty();
+                                $('#area_rist').append('<tr class="oo"><th style="text-align: left;">指标</th><th>合计</th></tr>')
+                                $('#area_rist').append('<tr class="aa"><td style="text-align: left;">已实施跨店零售店数</td><td class="aaa">合计</td></tr>')
+                                $('#area_rist').append('<tr class="bb"><td style="text-align: left;">已实施但无零售店数</td><td class="bbb">合计</td></tr>')
+                                $('#area_rist').append('<tr class="cc"><td style="text-align: left;">跨店零售金额</td><td class="ccc">合计</td></tr>')
+                                $('#area_rist').append('<tr class="dd"><td style="text-align: left;">跨店零售额占比</td><td class="ddd">合计</td></tr>')
+                                $('#area_rist').append('<tr class="ee"><td style="text-align: left;">跨店零售商品数量</td><td class="eee">合计</td></tr>')
+                                $('#area_rist').append('<tr class="ff"><td style="text-align: left;">仓库发货件数</td><td class="fff">合计</td></tr>')
+                                $('#area_rist').append('<tr class="gg"><td style="text-align: left;">店铺发货件数</td><td class="ggg">合计</td></tr>')
+                                $('#area_rist').append('<tr class="hh"><td style="text-align: left;">跨店零售单数</td><td class="hhh">合计</td></tr>')
+                                $('#area_rist').append('<tr class="ii"><td style="text-align: left;">跨店零售客单量</td><td class="iii">合计</td></tr>')
+                                $('#area_rist').append('<tr class="jj"><td style="text-align: left;">跨店零售客单价</td><td class="jjj">合计</td></tr>')
+                                $('#area_rist').append('<tr class="kk"><td style="text-align: left;">店无款的零售金额</td><td class="kkk">合计</td></tr>')
+                                $('#area_rist').append('<tr class="ll"><td style="text-align: left;">店无款的零售金额占比</td><td class="lll">合计</td></tr>')
+                                $('#area_rist').append('<tr class="mm"><td style="text-align: left;">店缺码的零售金额</td><td class="mmm">合计</td></tr>')
+                                $('#area_rist').append('<tr class="nn"><td style="text-align: left;">店缺码的零售金额占比</td><td class="nnn">合计</td></tr>')
                              for(var i=0;i<a_fh.length;i++){
                          	 $('#area_rist .aa').append('<td>'+a_fh[i]+'</td>')
 	                         }  
@@ -404,14 +418,14 @@
 					         $('#area_rist .lll').html(ll_fh)
 					         $('#area_rist .mmm').html(mm_fh)
 					         $('#area_rist .nnn').html(nn_fh)
-//					         $('#area_rist .aaa').html(aa_fh)
+					         
+//					         $('#area_rist').append('<tr class="oo"><th style="text-align: left;">指标</th><th>合计</th></tr>')
 					}
 						});
 		 }
 	 	  var params = {
-						vmouth_months:1,
 						"userId": '15975531236',
-						"va_months": 5,
+						"va_months": 1,
 						"local_send_flag": str,
 						"areacode1": "",
 						"org_level_id": "",
